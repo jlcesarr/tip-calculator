@@ -4,13 +4,14 @@
   "main": "index.js",
   "author": "Júlio César <74342193+jlcesarr@users.noreply.github.com>",
   "license": "MIT",
-  "dependencies": {
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
-  },
   "scripts": {
     "build": "webpack",
     "serve": "webpack serve"
+  },
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
