@@ -26,6 +26,10 @@ module.exports = {
         use: "babel-loader",
         exclude: [path.resolve(__dirname, "node_modules")],
       },
+      {
+        test: /\.svg$/,
+        loader: "svg-url-loader",
+      },
     ],
   },
 };
