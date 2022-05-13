@@ -8,5 +8,9 @@ export default {
     veryLightCyan: "hsl(189, 41%, 97%)",
   },
   white: "hsl(0, 0%, 100%)",
-  inputFontSize: "24px",
+  input: {
+    fontSize: "24px",
+    borderRadius: "5px",
+  },
+  borderRadius: "15px",
 };
