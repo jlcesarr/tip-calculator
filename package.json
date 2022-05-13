@@ -4,23 +4,26 @@
   "main": "index.js",
   "author": "Júlio César <74342193+jlcesarr@users.noreply.github.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
   "scripts": {
     "build": "webpack",
     "serve": "webpack serve"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.4",
-    "@commitlint/config-conventional": "^16.2.4",
-    "commitizen": "^4.2.4",
-    "cz-conventional-changelog": "3.3.0",
-    "husky": "^8.0.1",
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
+    "@commitlint/cli": "^16.2.4",
+    "@commitlint/config-conventional": "^16.2.4",
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.1",
     "prettier": "^2.6.2",
     "prop-types": "^15.8.1",
     "webpack": "^5.72.0",
