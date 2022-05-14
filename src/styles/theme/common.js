@@ -8,9 +8,15 @@ export default {
     veryLightCyan: "hsl(189, 41%, 97%)",
   },
   white: "hsl(0, 0%, 100%)",
+  errorMessage: "hsla(13, 70%, 61%, 1)",
   input: {
     fontSize: "24px",
     borderRadius: "5px",
   },
   borderRadius: "15px",
+  breakPoints: {
+    large: "1200px",
+    medium: "975px",
+    small: "540px",
+  },
 };
