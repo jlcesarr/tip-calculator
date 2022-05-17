@@ -5,10 +5,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  ${({ theme }) => `
-    @media only screen and (min-width: ${
-      theme.breakPoints.small
-    }) and (max-width: ${theme.breakPoints.medium}) {
+  ${({ theme }) => css`
+    @media only screen and (min-width: ${theme.breakPoints
+        .small}) and (max-width: ${theme.breakPoints.medium}) {
       max-width: 50%;
     }
 
