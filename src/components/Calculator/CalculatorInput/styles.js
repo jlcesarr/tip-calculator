@@ -2,36 +2,66 @@ import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  ${({ theme }) => `
+    @media only screen and (min-width: ${
+      theme.breakPoints.small
+    }) and (max-width: ${theme.breakPoints.medium}) {
+      max-width: 50%;
+    }
+
+    @media only screen and (max-width: ${theme.breakPoints.small - 1}) {
+      max-width: 100%;
+    }
+  `}
 `;
 
 export const Label = styled.label`
   color: ${({ theme }) => theme.grayish.darkCyan};
-  display: block;
-  margin-bottom: ${(props) => props.mb || "16px"};
-  margin-top: ${(props) => props.mt || "16px"};
+  flex-direction: column;
+  margin-bottom: ${(props) => (props.mb ? `${props.mb + "px"}` : "16px")};
+  margin-top: ${(props) => (props.mb ? `${props.mb + "px"}` : "16px")};
+  position: relative;
+`;
+
+export const Icon = styled.img`
+  position: absolute;
+  left: 10px;
+  top: 48px;
 `;
 
 export const Input = styled.input`
-  font-size: ${({ theme }) => theme.input.fontSize};
-  border-radius: ${({ theme }) => theme.input.borderRadius};
   border: none;
-  max-width: 379px;
   height: 48px;
-  background-color: #f3f9fa;
   text-align: right;
   padding: 5px;
-  color: ${({ theme }) => theme.darkCyan};
   font-weight: bold;
   font-family: "Space Mono";
   outline: none;
-  border: 3px solid transparent;
+  margin-top: 8px;
+  display: block;
 
-  ${(props) =>
-    props.valid == false
-      ? css`
-          border: 2px solid red;
-        `
-      : null}
+  width: 100%;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  ${({ value, valid, theme }) => css`
+    background-color: ${theme.grayish.veryLightCyan};
+    border-radius: ${theme.input.borderRadius};
+    font-size: ${theme.input.fontSize};
+    color: ${theme.darkCyan};
+    border: 3px solid ${valid == false ? theme.red : "transparent"};
+  `}
+
+  ::placeholder {
+    color: "#9ebbbd";
+    font-weight: bolder;
+  }
 
   ${(props) =>
     props.border
@@ -42,7 +72,7 @@ export const Input = styled.input`
         `
       : null}
 
-${({ theme }) => `
+  ${({ theme }) => `
     @media only screen and (max-width: ${theme.breakPoints.medium}) {
       max-width: 100%;
     }
@@ -51,9 +81,9 @@ ${({ theme }) => `
 
 export const Percentages = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 100px));
+  margin-top: 8px;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  max-width: 379px;
 
   ${({ theme }) => `
     @media only screen and (max-width: ${theme.breakPoints.medium}) {
@@ -62,17 +92,21 @@ export const Percentages = styled.div`
   `}
 `;
 
-export const Tip = styled.div`
-  background-color: ${(props) =>
-    props.selected ? props.theme.strongCyan : props.theme.darkCyan};
+export const Tip = styled.button`
+  border: none;
   height: 48px;
-  font-size: ${({ theme }) => theme.input.fontSize};
-  color: ${({ theme }) => theme.white};
-  border-radius: ${({ theme }) => theme.input.borderRadius};
   text-align: center;
   padding: 5px 0;
   cursor: pointer;
   transition: 0.3s ease-in;
+  font-weight: bold;
+
+  ${({ theme, selected }) => css`
+    border-radius: ${({ theme }) => theme.input.borderRadius};
+    font-size: ${({ theme }) => theme.input.fontSize};
+    color: ${({ theme }) => theme.white};
+    background-color: ${selected ? theme.strongCyan : theme.darkCyan};
+  `}
 `;
 
 export const TipInput = styled(Tip)`
@@ -85,7 +119,6 @@ export const TipInput = styled(Tip)`
   text-align: right;
   padding: 0 5px;
   border: 3px solid transparent;
-  /* caret-color: ${({ theme }) => theme.grayish.veryLightCyan}; */
   &,
   ::placeholder {
     color: ${({ theme }) => theme.darkCyan};
@@ -105,7 +138,18 @@ export const TipInput = styled(Tip)`
 `;
 
 export const ErrorMessage = styled.span`
-  /* margin-left: 190px; */
   float: right;
-  color: ${({ theme }) => theme.errorMessage};
+  margin-right: 5px;
+  color: ${({ theme }) => theme.red};
+
+  &::after {
+    clear: both;
+  }
+
+  ${({ theme }) => `
+    @media only screen and (max-width: ${theme.breakPoints.medium}) {
+      margin-right: 0px;
+    }
+
+  `}
 `;
