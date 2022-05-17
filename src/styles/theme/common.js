@@ -8,7 +8,7 @@ export default {
     veryLightCyan: "hsl(189, 41%, 97%)",
   },
   white: "hsl(0, 0%, 100%)",
-  errorMessage: "hsla(13, 70%, 61%, 1)",
+  red: "hsla(13, 70%, 61%, 1)",
   input: {
     fontSize: "24px",
     borderRadius: "5px",
