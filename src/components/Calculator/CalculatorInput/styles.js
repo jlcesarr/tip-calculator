@@ -141,7 +141,7 @@ export const TipInput = styled(Tip)`
 export const ErrorMessage = styled.span`
   float: right;
   margin-right: 5px;
-  color: ${({ theme }) => theme.red};
+  color: ${({ theme }) => theme.colors.red};
 
   &::after {
     clear: both;
