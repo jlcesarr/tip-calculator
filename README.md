@@ -4,7 +4,7 @@ Tip Calculator é uma calculadora de gorjetas que, a partir de uma porcentagem, 
 
 ## Aprendizados
 
-Este é o meu primeiro projeto construído com "Class Components" do React. É, também, o primeiro projeto que implementei as ferramentas "commitzen" e "commitlint" para estruturar e validar, respectivamente, as mensagens dos commits.
+Este é o meu primeiro projeto construído com "Class Components" do React. É, também, o primeiro projeto que implementei as ferramentas "commitizen" e "commitlint" para estruturar e validar, respectivamente, as mensagens dos commits.
 Além disso, fixei alguns outros conhecimentos sobre Styled Components, controle do lifecycle dos components, Context API, Webpack Loaders e etc...
 
 ## Referência
@@ -14,3 +14,7 @@ Além disso, fixei alguns outros conhecimentos sobre Styled Components, controle
 ## Demo
 
 [Netlify](https://tip-callc.netlify.app/)
+
+## Screenshots
+
+![Netlify](https://i.imgur.com/zNIFwyu.png)
