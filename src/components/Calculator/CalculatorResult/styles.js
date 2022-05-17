@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.darkCyan};
@@ -55,8 +55,6 @@ export const Value = styled.div`
 `;
 
 export const Button = styled.button`
-  background-color: ${({ theme }) => theme.strongCyan};
-  color: ${({ theme }) => theme.darkCyan};
   font-weight: bold;
   cursor: pointer;
   max-width: 390px;
@@ -66,6 +64,19 @@ export const Button = styled.button`
   height: 48px;
   align-self: end;
   border: none;
+
+  ${({ theme }) => css`
+    background-color: ${theme.strongCyan};
+    color: ${theme.darkCyan};
+  `}
+
+  ${(props) =>
+    props.allowed == false
+      ? css`
+          cursor: not-allowed;
+          background-color: ${props.theme.grayish.darkCyan};
+        `
+      : null}
 
   ${({ theme }) => `
     @media only screen and (max-width: ${theme.breakPoints.medium}) {

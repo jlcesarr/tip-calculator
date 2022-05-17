@@ -4,11 +4,35 @@ import { Container, Result, ResultLabel, Value, Button } from "./styles";
 export default class CalculatorResult extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      enableButton: false,
+    };
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.enableButton == false) {
+      this.setState({ enableButton: true });
+    }
   }
 
   getValues({ billValue, tipValue, peoplesValue }) {
-    let totalByPercentage = Number(billValue * (tipValue / 100)) || 0;
-    let totalTipPerPerson = totalByPercentage / peoplesValue || 0;
+    let totalByPercentage = billValue * (tipValue / 100);
+    let totalTipPerPerson = totalByPercentage / peoplesValue;
+
+    const isValidValues =
+      !totalByPercentage ||
+      !totalTipPerPerson ||
+      totalByPercentage < 0 ||
+      totalTipPerPerson < 0 ||
+      totalTipPerPerson === Infinity;
+
+    if (isValidValues) {
+      return {
+        totalByPercentage: 0,
+        totalTipPerPerson: 0,
+      };
+    }
 
     return {
       totalByPercentage: totalByPercentage.toFixed(2),
@@ -16,14 +40,15 @@ export default class CalculatorResult extends React.Component {
     };
   }
 
-  shouldComponentUpdate(nextProps, _) {
-    let { billValue, tipValue, peoplesValue } = nextProps;
-    return billValue > 0 && tipValue > 0 && peoplesValue > 0 ? true : false;
-  }
-
   render() {
-    let { billValue, tipValue, peoplesValue, onGeneralReset } = this.props;
-    let total = this.getValues({ billValue, tipValue, peoplesValue });
+    const { billValue, tipValue, peoplesValue, onGeneralReset } = this.props;
+    const { totalByPercentage, totalTipPerPerson } = this.getValues({
+      billValue,
+      tipValue,
+      peoplesValue,
+    });
+
+    const { enableButton } = this.state;
 
     return (
       <Container>
@@ -32,7 +57,7 @@ export default class CalculatorResult extends React.Component {
             Tip Amount
             <span>/person</span>
           </ResultLabel>
-          <Value>${total.totalTipPerPerson}</Value>
+          <Value>${totalTipPerPerson}</Value>
         </Result>
 
         <Result>
@@ -40,10 +65,12 @@ export default class CalculatorResult extends React.Component {
             Total
             <span>/person</span>
           </ResultLabel>
-          <Value>${total.totalByPercentage}</Value>
+          <Value>${totalByPercentage}</Value>
         </Result>
 
-        <Button onClick={onGeneralReset}>Reset</Button>
+        <Button allowed={enableButton} onClick={onGeneralReset}>
+          Reset
+        </Button>
       </Container>
     );
   }
