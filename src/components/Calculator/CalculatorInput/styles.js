@@ -151,6 +151,5 @@ export const ErrorMessage = styled.span`
     @media only screen and (max-width: ${theme.breakPoints.medium}) {
       margin-right: 0px;
     }
-
   `}
 `;

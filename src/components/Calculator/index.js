@@ -74,7 +74,6 @@ export default class Calculator extends React.Component {
 
   render() {
     const { billValue, tipValue, peoplesValue, saveChanges } = this.state;
-    console.log(this.state);
 
     return (
       <Container>

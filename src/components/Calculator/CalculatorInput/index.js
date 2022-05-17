@@ -20,11 +20,6 @@ export default class CalculatorInput extends React.Component {
     this.defaultTips = [5, 10, 15, 25, 50];
   }
 
-  componentDidMount(prevProps) {
-    // se o value == 0
-    // const { billValue, tipValue }
-  }
-
   render() {
     let {
       onBillValueChange,
@@ -50,7 +45,6 @@ export default class CalculatorInput extends React.Component {
             onChange={({ target }) => {
               onBillValueChange(target.value);
             }}
-            // value={billValue}
           />
         </Label>
         <Label mt={48}>
