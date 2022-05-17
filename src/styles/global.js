@@ -9,6 +9,6 @@ export default createGlobalStyle`
 
   body{
     font-family: 'Space Mono', sans-serif;
-    background-color: ${({ theme }) => theme.grayish.lightCyan}
+    background-color: ${({ theme }) => theme.colors.grayish.lightCyan}
   }
 `;

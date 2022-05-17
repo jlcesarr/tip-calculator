@@ -9,7 +9,7 @@ export const Container = styled.div`
   column-gap: 56px;
 
   ${({ theme }) => css`
-    background-color: ${theme.white};
+    background-color: ${theme.colors.white};
     border-radius: ${theme.borderRadius};
   `};
 

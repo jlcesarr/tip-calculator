@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.darkCyan};
+  background-color: ${({ theme }) => theme.colors.darkCyan};
   max-width: 100%;
   width: 100%;
   height: 100%;
@@ -29,14 +29,14 @@ export const Result = styled.div`
 `;
 
 export const ResultLabel = styled.span`
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.colors.white};
   font-weight: bold;
 
   & > span {
     display: block;
     font-size: 13px;
 
-    color: ${({ theme }) => theme.grayish.cyan};
+    color: ${({ theme }) => theme.colors.grayish.cyan};
   }
 `;
 
@@ -45,7 +45,7 @@ export const Value = styled.div`
   letter-spacing: -1px;
   flex-direction: space-between;
   font-size: 48px;
-  color: ${({ theme }) => theme.strongCyan};
+  color: ${({ theme }) => theme.colors.strongCyan};
 
   ${({ theme }) => `
     @media only screen and (max-width: ${theme.breakPoints.medium}) {
@@ -66,15 +66,15 @@ export const Button = styled.button`
   border: none;
 
   ${({ theme }) => css`
-    background-color: ${theme.strongCyan};
-    color: ${theme.darkCyan};
+    background-color: ${theme.colors.strongCyan};
+    color: ${theme.colors.darkCyan};
   `}
 
   ${(props) =>
     props.allowed == false
       ? css`
           cursor: not-allowed;
-          background-color: ${props.theme.grayish.darkCyan};
+          background-color: ${props.theme.colors.grayish.darkCyan};
         `
       : null}
 

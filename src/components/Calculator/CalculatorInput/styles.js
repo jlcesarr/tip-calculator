@@ -19,7 +19,7 @@ export const Container = styled.div`
 `;
 
 export const Label = styled.label`
-  color: ${({ theme }) => theme.grayish.darkCyan};
+  color: ${({ theme }) => theme.colors.grayish.darkCyan};
   flex-direction: column;
   margin-bottom: ${(props) => (props.mb ? `${props.mb + "px"}` : "16px")};
   margin-top: ${(props) => (props.mb ? `${props.mb + "px"}` : "16px")};
@@ -51,11 +51,11 @@ export const Input = styled.input`
   }
 
   ${({ value, valid, theme }) => css`
-    background-color: ${theme.grayish.veryLightCyan};
+    background-color: ${theme.colors.grayish.veryLightCyan};
     border-radius: ${theme.input.borderRadius};
     font-size: ${theme.input.fontSize};
-    color: ${theme.darkCyan};
-    border: 3px solid ${valid == false ? theme.red : "transparent"};
+    color: ${theme.colors.darkCyan};
+    border: 3px solid ${valid == false ? theme.colors.red : "transparent"};
   `}
 
   ::placeholder {
@@ -67,7 +67,7 @@ export const Input = styled.input`
     props.border
       ? `
           &:hover, &:focus{
-            border-color: ${props.theme.strongCyan};
+            border-color: ${props.theme.colors.strongCyan};
           }
         `
       : null}
@@ -104,8 +104,10 @@ export const Tip = styled.button`
   ${({ theme, selected }) => css`
     border-radius: ${({ theme }) => theme.input.borderRadius};
     font-size: ${({ theme }) => theme.input.fontSize};
-    color: ${({ theme }) => theme.white};
-    background-color: ${selected ? theme.strongCyan : theme.darkCyan};
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${selected
+      ? theme.colors.strongCyan
+      : theme.colors.darkCyan};
   `}
 `;
 
@@ -114,14 +116,14 @@ export const TipInput = styled(Tip)`
   border: none;
   width: 100%;
   display: block;
-  background-color: ${({ theme }) => theme.grayish.veryLightCyan};
+  background-color: ${({ theme }) => theme.colors.grayish.veryLightCyan};
   transition: unset;
   text-align: right;
   padding: 0 5px;
   border: 3px solid transparent;
   &,
   ::placeholder {
-    color: ${({ theme }) => theme.darkCyan};
+    color: ${({ theme }) => theme.colors.darkCyan};
     font-weight: bolder;
   }
 
@@ -133,7 +135,7 @@ export const TipInput = styled(Tip)`
   &:focus,
   &:hover {
     background-color: unset;
-    border-color: ${({ theme }) => theme.strongCyan};
+    border-color: ${({ theme }) => theme.colors.strongCyan};
   }
 `;
 
